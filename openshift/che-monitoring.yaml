@@ -4,90 +4,6 @@ metadata:
   name: rhche-che-monitoring
 objects:
 - apiVersion: v1
-  kind: Service
-  metadata:
-    labels:
-      app: rhche-grafana
-    name: rhche-grafana
-  spec:
-    ports:
-    - name: 3000-tcp
-      port: 3000
-      protocol: TCP
-      targetPort: 3000
-    selector:
-      deploymentconfig: rhche-grafana
-- apiVersion: v1
-  kind: Service
-  metadata:
-    labels:
-      app: prometheus
-    name: prometheus
-  spec:
-    ports:
-    - name: 9090-tcp
-      port: 9090
-      protocol: TCP
-      targetPort: 9090
-    selector:
-      deploymentconfig: prometheus
-- apiVersion: v1
-  kind: DeploymentConfig
-  metadata:
-    generation: 1
-    labels:
-      app: rhche-grafana
-    name: rhche-grafana
-  spec:
-    replicas: 1
-    selector:
-      app: rhche-grafana
-      deploymentconfig: rhche-grafana
-    template:
-      metadata:
-        labels:
-          app: rhche-grafana
-          deploymentconfig: rhche-grafana
-      spec:
-        containers:
-        - image: grafana/grafana
-          imagePullPolicy: Always
-          name: rhche-grafana
-          ports:
-          - containerPort: 3000
-            protocol: TCP
-          volumeMounts:
-          - mountPath: /etc/grafana/provisioning/datasources
-            name: volume-datasources
-          - mountPath: /etc/grafana/provisioning/dashboards
-            name: volume-dashboards
-          readinessProbe:
-            httpGet:
-              path: /api/health
-              port: 3000
-          livenessProbe:
-            httpGet:
-              path: /api/health
-              port: 3000
-            initialDelaySeconds: 60
-            timeoutSeconds: 30
-            failureThreshold: 10
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        terminationGracePeriodSeconds: 30
-        volumes:
-        - configMap:
-            defaultMode: 420
-            name: rhche-grafana-datasources
-          name: volume-datasources
-        - configMap:
-            defaultMode: 420
-            name: che-grafana-dashboards
-          name: volume-dashboards
-    test: false
-    triggers:
-      - type: ConfigChange
-- apiVersion: v1
   kind: DeploymentConfig
   metadata:
     generation: 1
@@ -128,6 +44,11 @@ objects:
               port: 9090
             initialDelaySeconds: 30
             timeoutSeconds: 30
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              memory: 128Mi
         restartPolicy: Always
         volumes:
         - name: volume-data 
