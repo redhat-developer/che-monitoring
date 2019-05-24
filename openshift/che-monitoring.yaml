@@ -36,7 +36,7 @@ objects:
           deploymentconfig: rhche-prometheus
       spec:
         containers:
-        - image: prom/prometheus
+        - image: ${IMAGE}:${IMAGE_TAG}
           imagePullPolicy: Always
           name: rhche-prometheus
           ports:
@@ -86,3 +86,8 @@ objects:
     resources:
       requests:
         storage: 1Gi
+parameters:
+- name: IMAGE
+  value: prom/prometheus
+- name: IMAGE_TAG
+  value: latest
