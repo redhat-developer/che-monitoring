@@ -118,7 +118,6 @@ objects:
     - type: ConfigChange
     secrets:
     - app-sre-observability-htpasswd
-
 - apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
