@@ -63,6 +63,48 @@ objects:
               memory: 256Mi
             requests:
               memory: 128Mi
+        - args:
+          - -provider=github
+          - -http-address=:3000
+          - -https-address=
+          - -htpasswd-file=/etc/proxy/htpasswd/auth
+          - -email-domain=*
+          - -upstream=${PROMETHEUS_SVC_URL}
+          - -github-org=app-sre
+          - -github-team=app-sre-observability
+          env:
+          - name: OAUTH2_PROXY_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                key: client-id
+                name: prometheus-proxy-config
+          - name: OAUTH2_PROXY_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: client-secret
+                name: prometheus-proxy-config
+          - name: OAUTH2_PROXY_COOKIE_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: cookie-secret
+                name: prometheus-proxy-config
+          image: quay.io/pusher/oauth2_proxy:latest
+          imagePullPolicy: Always
+          name: prometheus-proxy
+          ports:
+          - containerPort: 3000
+            name: http
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: http
+            timeoutSeconds: 1
+          volumeMounts:
+          - mountPath: /etc/proxy/htpasswd
+            name: secret-app-sre-observability-htpasswd
         restartPolicy: Always
         volumes:
         - name: volume-data 
