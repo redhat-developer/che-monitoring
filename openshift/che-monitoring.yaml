@@ -135,3 +135,5 @@ parameters:
   value: prom/prometheus
 - name: IMAGE_TAG
   value: latest
+- name: PROMETHEUS_SVC_URL
+  value: ""
