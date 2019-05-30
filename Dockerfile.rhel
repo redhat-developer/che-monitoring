@@ -1,0 +1,9 @@
+FROM quay.io/pusher/oauth2_proxy:latest AS builder
+
+FROM quay.io/openshiftio/rhel-base-pcp:latest
+
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=builder /bin/oauth2_proxy /bin/oauth2_proxy
+COPY --from=builder /etc/ssl/private/jwt_signing_key.pem /etc/ssl/private/jwt_signing_key.pem
+
+ENTRYPOINT ["/bin/oauth2_proxy"]
