@@ -88,7 +88,7 @@ objects:
               secretKeyRef:
                 key: cookie-secret
                 name: prometheus-proxy-config
-          image: quay.io/openshiftio/rhche-che-oauth2_proxy:latest
+          image: quay.io/openshiftio/rhel-rhche-oauth2-proxy:latest
           imagePullPolicy: Always
           name: prometheus-proxy
           ports:
