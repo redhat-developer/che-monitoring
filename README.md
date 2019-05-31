@@ -18,4 +18,4 @@ This repository includes:
 - Add this Prometheus instance as a datasource in Grafana
 - With your preferred workflow, add the dashboards to your Grafana instance
 
-You now have operational insights and metrics for Eclipse Che! 
+You now have operational insights and metrics for Eclipse Che!
