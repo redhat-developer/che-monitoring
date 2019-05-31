@@ -12,7 +12,7 @@ REGISTRY="quay.io"
 
 function tag_push() {
   local tag=$1
-  docker tag f8adminproxy-deploy $tag
+  docker tag rhel-rhche-oauth2_proxy $tag
   docker push $tag
 }
 
