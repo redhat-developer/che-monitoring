@@ -59,7 +59,7 @@ else
   docker build -t rhche-che-oauth2_proxy -f "Dockerfile" .
 
   tag_push ${REGISTRY}/openshiftio/rhche-che-oauth2_proxy:$TAG
-  tag_push ${REGISTRY}/openshiftio/frhche-che-oauth2_proxy:latest
+  tag_push ${REGISTRY}/openshiftio/rhche-che-oauth2_proxy:latest
 fi
 
 echo 'CICO: Image pushed, ready to update deployed app'
