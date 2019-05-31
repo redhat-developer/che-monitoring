@@ -106,6 +106,8 @@ objects:
           - mountPath: /etc/proxy/htpasswd
             name: secret-app-sre-observability-htpasswd
         restartPolicy: Always
+        secrets:
+        - app-sre-observability-htpasswd
         volumes:
         - name: volume-data 
           persistentVolumeClaim:
@@ -116,8 +118,6 @@ objects:
           name: volume-config
     triggers:
     - type: ConfigChange
-    secrets:
-    - app-sre-observability-htpasswd
 - apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
