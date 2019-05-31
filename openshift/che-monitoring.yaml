@@ -112,7 +112,7 @@ objects:
             claimName: rhche-prometheus-data
         - configMap:
             defaultMode: 420
-            name: prometheus-config
+            name: rhche-prometheus-config
           name: volume-config
         - name: app-sre-observability-htpasswd
           secret:
@@ -127,7 +127,7 @@ objects:
       app: rhche-prometheus
   spec:
     accessModes:
-    - ReadWriteOnce
+    - ReadOnlyMany
     resources:
       requests:
         storage: 1Gi
