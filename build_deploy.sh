@@ -50,16 +50,9 @@ TAG=$(echo $GIT_COMMIT | cut -c1-${DEVSHIFT_TAG_LEN})
 
 login
 
-if [ "$TARGET" = "rhel" ]; then
-  docker build -t rhel-rhche-oauth2_proxy -f "Dockerfile.rhel" .
+docker build -t rhel-rhche-oauth2_proxy -f "Dockerfile.rhel" .
 
-  tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:$TAG
-  tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:latest
-else
-  docker build -t rhel-rhche-oauth2_proxy -f "Dockerfile" .
-
-  tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:$TAG
-  tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:latest
-fi
+tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:$TAG
+tag_push ${REGISTRY}/openshiftio/rhel-rhche-oauth2_proxy:latest
 
 echo 'CICO: Image pushed, ready to update deployed app'
