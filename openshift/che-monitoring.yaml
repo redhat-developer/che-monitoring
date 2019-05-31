@@ -106,8 +106,6 @@ objects:
           - mountPath: /etc/proxy/htpasswd
             name: app-sre-observability-htpasswd
         restartPolicy: Always
-        secrets:
-        - app-sre-observability-htpasswd
         volumes:
         - name: volume-data 
           persistentVolumeClaim:
@@ -116,6 +114,9 @@ objects:
             defaultMode: 420
             name: prometheus-config
           name: volume-config
+        - name: app-sre-observability-htpasswd
+          secret:
+            secretName: app-sre-observability-htpasswd
     triggers:
     - type: ConfigChange
 - apiVersion: v1
