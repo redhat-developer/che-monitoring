@@ -36,8 +36,10 @@ function login() {
 /usr/sbin/setenforce 0 || :
 
 # Get all the deps in
+yum install -y yum-utils device-mapper-persistent-data lvm2
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum -y install \
-   docker \
+   docker-ce \
    make \
    git \
    curl
