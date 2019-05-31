@@ -1,3 +1,5 @@
+[![Build Status](https://ci.centos.org/buildStatus/icon?job=devtools-che-monitoring-build-master)](https://ci.centos.org/job/devtools-che-monitoring-build-master)
+
 # Monitoring Eclipse Che with Prometheus
 
 This repository provides an opinionated way of monitoring Eclipse Che with Prometheus
