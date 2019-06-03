@@ -119,18 +119,6 @@ objects:
             secretName: app-sre-observability-htpasswd
     triggers:
     - type: ConfigChange
-- apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    name: rhche-prometheus-data
-    labels:
-      app: rhche-prometheus
-  spec:
-    accessModes:
-    - ReadOnlyMany
-    resources:
-      requests:
-        storage: 1Gi
 parameters:
 - name: IMAGE
   value: prom/prometheus
