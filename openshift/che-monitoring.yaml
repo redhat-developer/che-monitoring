@@ -127,7 +127,7 @@ objects:
       app: rhche-prometheus
   spec:
     accessModes:
-    - ReadOnlyMany
+    - ReadWriteOnce
     resources:
       requests:
         storage: 10Gi
