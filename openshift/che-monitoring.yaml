@@ -30,6 +30,11 @@ objects:
     name: rhche-prometheus
   spec:
     replicas: 1
+    strategy:
+      activeDeadlineSeconds: 21600
+      recreateParams:
+        timeoutSeconds: 600
+      type: Recreate
     selector:
       app: rhche-prometheus
       deploymentconfig: rhche-prometheus
