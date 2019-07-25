@@ -43,6 +43,8 @@ objects:
         - image: ${IMAGE}:${IMAGE_TAG}
           imagePullPolicy: Always
           name: rhche-prometheus
+          args:
+          - --storage.tsdb.retention.time=30d
           ports:
           - containerPort: 9090
             protocol: TCP
