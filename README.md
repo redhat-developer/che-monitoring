@@ -2,7 +2,7 @@
 
 # Monitoring Eclipse Che with Prometheus
 
-This repository provides an opinionated way of monitoring Eclipse Che with Prometheus
+This repository provides an opinionated way of monitoring Eclipse Che with Prometheus.
 
 A full guide on the functionality is available here: https://www.eclipse.org/che/docs/che-7/monitoring-che.html
 
