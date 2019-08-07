@@ -33,7 +33,7 @@ objects:
     strategy:
       activeDeadlineSeconds: 21600
       recreateParams:
-        timeoutSeconds: 600
+        timeoutSeconds: 700
       type: Recreate
     selector:
       app: rhche-prometheus
