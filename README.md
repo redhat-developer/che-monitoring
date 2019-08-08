@@ -13,7 +13,7 @@ This repository includes:
 
 - Create a configmap for the Prometheus scrape config as referenced in the Deployment spec
 - Process the OpenShift template, supplying the IMAGE and IMAGE_TAG parameters.  Note that the Prometheus instance configured requires a PersistentVolume and you're expected to have dynamic storage provisioning. If you don't, just remove the reference to the `PersistentVolumeClaim` object from the template before doing an `oc process`
-- `oc create` the template.
+- `oc create` the template: `oc process -f template.yaml | oc create -f -`
 - Create a Route for your new Prometheus instance
 - Add this Prometheus instance as a datasource in Grafana
 - With your preferred workflow, add the dashboards to your Grafana instance
