@@ -150,8 +150,8 @@ objects:
         storage: 10Gi
 parameters:
 - name: IMAGE
-  value: prom/prometheus
+  value: quay.io/prometheus/prometheus
 - name: IMAGE_TAG
-  value: latest
+  value: v2.13.0
 - name: PROMETHEUS_SVC_URL
   value: ""
