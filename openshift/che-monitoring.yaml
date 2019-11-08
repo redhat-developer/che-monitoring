@@ -75,9 +75,11 @@ objects:
             timeoutSeconds: 30
           resources:
             limits:
+              cpu: 400m
               memory: 512Mi
             requests:
               memory: 128Mi
+              cpu: 1m
         - args:
           - -provider=github
           - -http-address=:3000
