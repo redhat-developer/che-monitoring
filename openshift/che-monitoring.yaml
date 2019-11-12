@@ -122,6 +122,13 @@ objects:
           volumeMounts:
           - mountPath: /etc/proxy/htpasswd
             name: app-sre-observability-htpasswd
+          resources:
+            limits:
+              cpu: 400m
+              memory: 352Mi
+            requests:
+              memory: 32Mi
+              cpu: 10m
         restartPolicy: Always
         volumes:
         - name: volume-data 
