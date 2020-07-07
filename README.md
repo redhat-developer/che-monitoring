@@ -2,6 +2,8 @@
 
 # Monitoring Eclipse Che with Prometheus
 
+[![Contribute](https://che.openshift.io/factory/resources/factory-contribute.svg)](https://che.openshift.io/f?url=https://github.com/redhat-developer/che-monitoring)
+
 This repository provides an opinionated way of monitoring Eclipse Che with Prometheus.
 
 A full guide on the functionality is available here: https://www.eclipse.org/che/docs/che-7/monitoring-che.html
